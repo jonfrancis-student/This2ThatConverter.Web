@@ -1,19 +1,35 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using This2ThatConverter.Web.Models;
+using This2ThatConverter.Services.Interfaces;
 
 namespace This2ThatConverter.Web.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        private readonly IUnitConversionService _unitConversionService;
 
-        public HomeController(ILogger<HomeController> logger)
+        //Dependency Injection
+        public HomeController(IUnitConversionService unitConversionService)
         {
-            _logger = logger;
+            _unitConversionService = unitConversionService;
         }
 
+        [HttpGet]
         public IActionResult Index()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult MetricToImperial(double inputValue)
+        {
+            //_unitConversionService.FahrenheitToCelsius(inputValue);
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult ImperialToMetric()
         {
             return View();
         }
