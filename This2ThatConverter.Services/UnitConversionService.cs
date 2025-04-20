@@ -35,17 +35,22 @@ namespace This2ThatConverter.Services
         #region Imperial to Metric Weight Conversion Methods
         public double OuncesToMilligrams(double ounces) => ounces * 28349.5;
         public double PoundsToMilligrams(double pounds) => pounds * 453592;
-        public double KilogramsToMilligrams(double kilograms) => kilograms * 1000000; // 1 kilogram = 1,000,000 milligrams
+        public double StonesToMilligrams(double stones) => stones * 6350293.18; 
         public double ImperialTonToMilligrams(double imperialTon) => imperialTon * 1016047000;
 
         public double OuncesToGrams(double ounces) => ounces * 28.3495;
         public double PoundsToGrams(double pounds) => pounds * 453.592;
-        public double KilogramsToGrams(double kilograms) => kilograms * 1000; // 1 kilogram = 1,000 grams
+        public double StonesToGrams(double stones) => stones * 6350.29318;
         public double ImperialTonToGrams(double imperialTon) => imperialTon * 1016047;
 
         public double OuncesToKilograms(double ounces) => ounces / 35.274;
         public double PoundsToKilograms(double pounds) => pounds / 2.20462;
+        public double StonesToKilograms(double stones) => stones / 0.157473;
         public double ImperialTonToKilograms(double imperialTon) => imperialTon * 1016.047;
+
+        public double OuncesToMetricTons(double ounces) => ounces / 35274;
+        public double PoundsToMetricTons(double pounds) => pounds / 2204.62;
+        public double StonesToMetricTons(double stones) => stones / 157.473;
         public double ImperialTonToMetricTon(double imperialTon) => imperialTon * 1.016047;
         #endregion
 
@@ -82,15 +87,15 @@ namespace This2ThatConverter.Services
         public double YardsToCentimeters(double yards) => yards * 91.44;
         public double MilesToCentimeters(double miles) => miles * 160934;
 
-        public double InchesToMeters(double inches) => inches / 39.3701;
-        public double FeetToMeters(double feet) => feet / 3.28084;
-        public double YardsToMeters(double yards) => yards / 1.09361;
-        public double MilesToMeters(double miles) => miles / 1609.344;
+        public double InchesToMeters(double inches) => inches * 0.0254;
+        public double FeetToMeters(double feet) => feet * 0.3048;
+        public double YardsToMeters(double yards) => yards * 0.9144;
+        public double MilesToMeters(double miles) => miles * 1609.344;
 
         public double InchesToKilometers(double inches) => inches / 39370.1;
         public double FeetToKilometers(double feet) => feet / 3280.84;
         public double YardsToKilometers(double yards) => yards / 1093.61;
-        public double MilesToKilometers(double miles) => miles / 1.609344;
+        public double MilesToKilometers(double miles) => miles * 1.609344;
         #endregion
 
         #region Temperature Conversion Methods

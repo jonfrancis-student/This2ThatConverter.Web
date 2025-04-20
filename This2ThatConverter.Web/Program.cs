@@ -5,7 +5,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-// Register your UnitConversionService and IUnitConversionService for Dependency Injection
+// Register UnitConversionService and IUnitConversionService for Dependency Injection
 builder.Services.AddScoped<IUnitConversionService, UnitConversionService>();
 
 
