@@ -32,18 +32,24 @@ namespace This2ThatConverter.Services.Interfaces
         // Imperial to Metric Weight Conversion Methods
         double OuncesToMilligrams(double ounces);
         double PoundsToMilligrams(double pounds);
-        double KilogramsToMilligrams(double kilograms);
+        double StonesToMilligrams(double stones);
         double ImperialTonToMilligrams(double imperialTon);
 
         double OuncesToGrams(double ounces);
         double PoundsToGrams(double pounds);
-        double KilogramsToGrams(double kilograms);
+        double StonesToGrams(double stones);
         double ImperialTonToGrams(double imperialTon);
 
         double OuncesToKilograms(double ounces);
         double PoundsToKilograms(double pounds);
+        double StonesToKilograms(double stones);
         double ImperialTonToKilograms(double imperialTon);
+
+        double OuncesToMetricTons(double ounces);
+        double PoundsToMetricTons(double pounds);
+        double StonesToMetricTons(double stones);
         double ImperialTonToMetricTon(double imperialTon);
+       
 
         // Metric to Imperial Length Conversion Methods
         double MillimetersToInches(double millimeters);

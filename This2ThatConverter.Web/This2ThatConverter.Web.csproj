@@ -8,6 +8,8 @@
 
   <ItemGroup>
     <ProjectReference Include="..\This2ThatConverter.Services\This2ThatConverter.Services.csproj" />
+	<ProjectReference Include="..\This2ThatConverter.Models\This2ThatConverter.Models.csproj" />
+
   </ItemGroup>
 
 </Project>
