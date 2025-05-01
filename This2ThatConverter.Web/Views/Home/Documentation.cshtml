@@ -1,0 +1,97 @@
+﻿@{
+    ViewData["Title"] = "Documentation";
+}
+<!-- Light/Dark Mode Toggle -->
+<div class="d-flex" role="group" aria-label="Theme toggle">
+    <div class="form-check form-switch mt-3 me-3 ms-auto">
+        <input class="form-check-input"
+               type="checkbox"
+               id="lightSwitch"
+               aria-label="Toggle between light and dark mode"
+               aria-checked="false"
+               style="width:3em; height:1.5em;" />
+        <label class="form-check-label ms-3" for="lightSwitch">
+            <span class="visually-hidden">Toggle light or dark theme</span>
+            <svg xmlns="http://www.w3.org/2000/svg"
+                 width="30"
+                 height="30"
+                 fill="currentColor"
+                 class="bi bi-brightness-high"
+                 viewBox="0 0 16 16"
+                 role="presentation"
+                 aria-hidden="true">
+                <path d="M8 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6zm0 1a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z" />
+            </svg>
+        </label>
+    </div>
+</div>
+<!-- Documentation -->
+<div class="my-5 container">
+    <h1 class="mb-4">Documentation</h1>
+
+    <p>
+        Welcome to the <strong>This 2 That Converter</strong> documentation. This guide walks you through how to use the application effectively.
+    </p>
+
+    <hr class="my-4" />
+
+    <h4>🔢 Step-by-Step Guide</h4>
+
+    <ol class="mt-3">
+        <li><strong>Select a Category</strong>: Choose between Weight, Length, or Temperature</li>
+        <li><strong>Choose Conversion Direction</strong>: Select whether you're converting from <em>Imperial to Metric</em> or <em>Metric to Imperial</em>.</li>
+        <li><strong>Enter a Value</strong>: Type the number you want to convert in the input field.</li>
+        <li><strong>Select Units</strong>: Choose both the source and target units using the dropdowns.</li>
+        <li><strong>View Result</strong>: The converted value will automatically appear in the output field.</li>
+    </ol>
+
+    <h4 class="mt-5">🎙️ Using Voice Input</h4>
+    <p>
+        You can also use your voice to perform conversions:
+    </p>
+    <ul>
+        <li>Click the <strong>microphone icon</strong> next to the input field.</li>
+        <li>Speak a phrase like <code>Convert 10 pounds to kilograms</code>.</li>
+        <li>The system will automatically fill in the appropriate values and units.</li>
+    </ul>
+    <p>
+        Note: Voice input uses <strong>Microsoft Azure Speech-to-Text</strong> and is processed in real-time. No data is stored.
+    </p>
+
+    <h4 class="mt-5">🌓 Theme Toggle</h4>
+    <p>
+        Use the switch in the top-right corner to toggle between light and dark mode. Your preference will be saved automatically.
+    </p>
+
+    <h4 class="mt-5">❓ Frequently Asked Questions</h4>
+
+    <div class="accordion mt-3" id="faqAccordion">
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="faq1">
+                <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapse1">
+                    Do I need an account to use this tool?
+                </button>
+            </h2>
+            <div id="faqCollapse1" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                <div class="accordion-body">
+                    No, this application does not require user accounts or login.
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="faq2">
+                <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapse2">
+                    Is my voice data stored?
+                </button>
+            </h2>
+            <div id="faqCollapse2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                <div class="accordion-body">
+                    No. Voice commands are processed in real-time using Microsoft Azure's Speech-to-Text API and are not stored.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <p class="mt-5 text-muted">Last updated: @DateTime.Now.ToString("MMMM dd, yyyy")</p>
+</div>

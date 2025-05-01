@@ -1,42 +1,55 @@
 ﻿<!--Light/Dark Mode Toggle-->
-<div class="d-flex">
-	<div class="form-check form-switch mt-3 me-3 ms-auto">
-		<label class="form-check-label ms-3" for="lightSwitch">
+<div class="d-flex" role="group" aria-label="Theme toggle">
+    <div class="form-check form-switch mt-3 me-3 ms-auto">
+        <input class="form-check-input"
+               type="checkbox"
+               id="lightSwitch"
+               aria-label="Toggle between light and dark mode"
+               aria-checked="false" 
+               style="width:3em; height:1.5em;" />
+        <label class="form-check-label ms-3" for="lightSwitch">
+            <span class="visually-hidden">Toggle light or dark theme</span>
             <svg xmlns="http://www.w3.org/2000/svg"
                  width="30"
                  height="30"
                  fill="currentColor"
                  class="bi bi-brightness-high"
-                 viewBox="0 0 16 16">
+                 viewBox="0 0 16 16"
+                 role="presentation"
+                 aria-hidden="true">
                 <path d="M8 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6zm0 1a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z" />
             </svg>
-		</label>
-        <input class="form-check-input" type="checkbox" style="width:3em; height:1.5em;" id="lightSwitch" />
-	</div>
+        </label>
+    </div>
 </div>
 
-
+<div class="alert alert-danger alert-dismissible fade show my-5 d-none" role="alert" id="errorAlert">
+    <strong>Error:</strong> There was an issue processing speech to text.
+    <button type="button" class="btn-close" data-dismiss="alert" aria-label="Close" onclick="closeErrorAlert()">
+        <span aria-hidden="true"></span>
+    </button>
+</div>
 
 <!--Main Content (Forms)-->
-<div class="mt-4 container">
-    <!--Category-->
+<div class="mt-4 container" role="main">
+    <!--Category Selection-->
     <div class="mb-4">
-        <label class="form-label">Select Category</label>
-        <select id="categorySelect" class="form-select">
+        <label for="categorySelect" class="form-label">Select Category</label>
+        <select id="categorySelect" class="form-select" aria-label="Conversion category">
             <option value="weight">Weight</option>
             <option value="length">Length</option>
             <option value="temperature">Temperature</option>
         </select>
     </div>
     <!--Tabs-->
-    <ul class="nav nav-tabs justify-content-center mb-4" id="converterTabs">
-        <li class="nav-item">
-            <button class="nav-link active" id="imperial-tab" type="button" data-bs-toggle="tab" data-bs-target="#imperial">
+    <ul class="nav nav-tabs justify-content-center mb-4" id="converterTabs" role="tablist">
+        <li class="nav-item" role="presentation">
+            <button class="nav-link active" id="imperial-tab" type="button" data-bs-toggle="tab" data-bs-target="#imperial" role="tab" aria-controls="imperial" aria-selected="true">
                 Imperial to Metric
             </button>
         </li>
-        <li class="nav-item">
-            <button class="nav-link" id="metric-tab" type="button" data-bs-toggle="tab" data-bs-target="#metric">
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="metric-tab" type="button" data-bs-toggle="tab" data-bs-target="#metric" role="tab" aria-controls="metric" aria-selected="false">
                 Metric to Imperial
             </button>
         </li>
@@ -44,34 +57,33 @@
     <!--Tab Content-->
     <div class="tab-content" id="converterTabsContent">
         <!--Imperial to Metric (Tab 1)-->
-        <div class="tab-pane fade show active" id="imperial">
+        <div class="tab-pane fade show active" id="imperial" role="tabpanel" aria-labelledby="imperial-tab">
             <div class="mb-4">
-                <label class="form-label">Imperial Unit</label>
+                <label for="imperialSelect" class="form-label">Imperial Unit</label>
                 <div class="input-group">
                     <!--Imperial Unit Selection-->
-                    <select id="imperialSelect" class="form-select">
+                    <select id="imperialSelect" class="form-select" aria-label="Imperial unit selection">
                         <option selected disabled>-- Select Unit --</option>
                     </select>
-                    <input id="imperialInput" type="number" class="form-control" placeholder="Enter Value..." />
-                    <a class="btn btn-outline-secondary" href="#" type="button">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" style="width:15px;height:15px;">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 18.75a6 6 0 0 0 6-6v-1.5m-6 7.5a6 6 0 0 1-6-6v-1.5m6 7.5v3.75m-3.75 0h7.5M12 15.75a3 3 0 0 1-3-3V4.5a3 3 0 1 1 6 0v8.25a3 3 0 0 1-3 3Z" />
-                        </svg>
+                    <label for="imperialInput" class="visually-hidden">Enter imperial value</label>
+                    <input id="imperialInput" type="number" class="form-control" placeholder="Enter Value..." aria-label="Imperial unit value input" />
+                    <a class="btn btn-outline-secondary" href="#" type="button" onclick="toggleSpeech('imperial')" id="speechButtonImperial" aria-label="Start voice input for imperial conversion">
+                        🎙️
                     </a>
                 </div>
             </div>
             <div class="mb-4 text-center">
                 To
             </div>
-            <!--Bottom Layer (Results)-->
+            <!--Conversion Result-->
             <div>
-                <label class="form-label">Metric Unit</label>
+                <label for="metricResultSelect" class="form-label">Metric Unit</label>
                 <div class="input-group">
                     <!--Metric Unit Selection-->
-                    <select id="metricResultSelect" class="form-select">
+                    <select id="metricResultSelect" class="form-select" aria-label="Metric unit result selection">
                         <option value="value">-- Select Unit --</option>
                     </select>
-                    <input id="imperialResultInput" type="text" class="form-control" placeholder="Final Value..." readonly />
+                    <input id="imperialResultInput" type="text" class="form-control" placeholder="Final Value..." readonly aria-label="Conversion result in metric unit" aria-live="polite" />
                 </div>
             </div>
         </div>
@@ -79,32 +91,31 @@
         <!--Metric to Imperial (Tab 2)-->
         <div class="tab-pane fade" id="metric">
             <div class="mb-4">
-                <label class="form-label">Metric Unit</label>
+                <label for="metricSelect" class="form-label">Metric Unit</label>
                 <div class="input-group">
                     <!--Metric Unit Selection-->
-                    <select id="metricSelect" class="form-select">
+                    <select id="metricSelect" class="form-select" role="tabpanel" aria-labelledby="metric-tab" aria-label="Metric unit selection">
                         <option selected disabled>-- Select Unit --</option>
                     </select>
-                    <input id="metricInput" type="number" class="form-control" placeholder="Enter Value..." />
-                    <a class="btn btn-outline-secondary" href="#" type="button">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" style="width:15px;height:15px;">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 18.75a6 6 0 0 0 6-6v-1.5m-6 7.5a6 6 0 0 1-6-6v-1.5m6 7.5v3.75m-3.75 0h7.5M12 15.75a3 3 0 0 1-3-3V4.5a3 3 0 1 1 6 0v8.25a3 3 0 0 1-3 3Z" />
-                        </svg>
+                    <label for="metricInput" class="visually-hidden">Enter metric value</label>
+                    <input id="metricInput" type="number" class="form-control" placeholder="Enter Value..." aria-label="Metric unit value input" />
+                    <a class="btn btn-outline-secondary" href="#" type="button" onclick="toggleSpeech('metric')" id="speechButtonMetric" aria-label="Start voice input for metric conversion">
+                        🎙️
                     </a>
                 </div>
             </div>
             <div class="mb-4 text-center">
                 To
             </div>
-            <!--Bottom Layer (Results)-->
+            <!--Conversion Result-->
             <div>
-                <label class="form-label">Imperial Unit</label>
+                <label for="imperialResultSelect" class="form-label">Imperial Unit</label>
                 <div class="input-group">
                     <!--Imperial Unit Selection-->
-                    <select class="form-select" id="imperialResultSelect">
+                    <select class="form-select" id="imperialResultSelect" aria-label="Imperial unit result selection">
                         <option value="value">-- Select Unit --</option>
                     </select>
-                    <input id="metricResultInput" type="text" class="form-control" placeholder="Final Value..." readonly />
+                    <input id="metricResultInput" type="text" class="form-control" placeholder="Final Value..." readonly aria-label="Conversion result in imperial unit" aria-live="polite" />
                 </div>
             </div>
         </div>
@@ -112,11 +123,11 @@
     </div>
 </div>
 
+<script>
 
-<!--Error Messages-->
-<!--Negative Values (Temperature Only)-->
-<!--Error on Conversion (Needs to hit Server)-->
-
+</script>
 <script src="~/js/UnitConversionDropdown.js" asp-append-version="true"></script>
 <script src="~/js/UnitConversionSubmission.js" asp-append-version="true"></script>
+<script src="~/js/SpeechCommandHandler.js" asp-append-version="true"></script>
+
 

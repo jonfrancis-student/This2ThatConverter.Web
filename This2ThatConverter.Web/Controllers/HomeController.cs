@@ -10,11 +10,13 @@ namespace This2ThatConverter.Web.Controllers
     public class HomeController : Controller
     {
         private readonly IUnitConversionService _unitConversionService;
+        private readonly ISpeechToTextService _speechService;
         private readonly Dictionary<(string from, string to), Func<double, double>> _conversionMap; // Dictionary for mapping unit conversions (better than if else)
 
         //Dependency Injection
-        public HomeController(IUnitConversionService unitConversionService)
+        public HomeController(IUnitConversionService unitConversionService, ISpeechToTextService speechService)
         {
+            _speechService = speechService;
             _unitConversionService = unitConversionService;
             // Mappings for ConvertUnit Action Method
             _conversionMap = new()
@@ -142,7 +144,19 @@ namespace This2ThatConverter.Web.Controllers
         }
         #endregion
 
+        #region Speech To Text Functionality
+        [HttpPost]
+        public async Task<IActionResult> ToggleSpeechToText()
+        {
+            var text = await _speechService.ToggleListeningAsync();
+            return Json(new { success = true, text });
+        }
+        #endregion
 
+        public IActionResult Documentation()
+        {
+            return View();
+        }
         public IActionResult Privacy()
         {
             return View();
