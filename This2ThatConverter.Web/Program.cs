@@ -7,6 +7,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 // Register UnitConversionService and IUnitConversionService for Dependency Injection
 builder.Services.AddScoped<IUnitConversionService, UnitConversionService>();
+builder.Services.AddTransient<ISpeechToTextService, SpeechToTextService>();
 
 
 var app = builder.Build();

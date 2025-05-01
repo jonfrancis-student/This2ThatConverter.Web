@@ -1,6 +1,64 @@
 ﻿@{
     ViewData["Title"] = "Privacy Policy";
 }
-<h1>@ViewData["Title"]</h1>
+<!--Light/Dark Mode Toggle-->
+<div class="d-flex" role="group" aria-label="Theme toggle">
+    <div class="form-check form-switch mt-3 me-3 ms-auto">
+        <input class="form-check-input"
+               type="checkbox"
+               id="lightSwitch"
+               aria-label="Toggle between light and dark mode"
+               aria-checked="false"
+               style="width:3em; height:1.5em;" />
+        <label class="form-check-label ms-3" for="lightSwitch">
+            <span class="visually-hidden">Toggle light or dark theme</span>
+            <svg xmlns="http://www.w3.org/2000/svg"
+                 width="30"
+                 height="30"
+                 fill="currentColor"
+                 class="bi bi-brightness-high"
+                 viewBox="0 0 16 16"
+                 role="presentation"
+                 aria-hidden="true">
+                <path d="M8 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6zm0 1a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z" />
+            </svg>
+        </label>
+    </div>
+</div>
+<div class="my-5 container">
+    <h1 class="mb-4">Privacy Policy</h1>
 
-<p>Use this page to detail your site's privacy policy.</p>
+    <p>
+        This 2 That Converter values your privacy and is committed to protecting your personal information.
+    </p>
+
+    <h4 class="mt-4">1. Data Collection</h4>
+    <p>
+        We do not collect, store, or share any personal data. All conversions are processed directly on your device, and no information is saved or transmitted to external servers.
+    </p>
+
+    <h4 class="mt-4">2. Speech Recognition</h4>
+    <p>
+        The voice command feature uses <strong>Microsoft Azure Speech-to-Text</strong> to process your spoken input in real-time. Your voice input is:
+        <ul>
+            <li>Used only for immediate conversion</li>
+            <li>Not stored by the application</li>
+            <li>Not associated with any user identity</li>
+        </ul>
+        Please refer to <a href="https://azure.microsoft.com/en-us/support/legal/" target="_blank">Microsoft’s privacy terms</a> for more details.
+    </p>
+
+    <h4 class="mt-4">3. Cookies and Tracking</h4>
+    <p>
+        This application does not use cookies, analytics, or any form of user tracking.
+    </p>
+
+    <h4 class="mt-4">4. Contact</h4>
+    <p>
+        If you have any questions about this privacy policy, please contact us at <a href="mailto:support@this2thatconverter.com">support@this2thatconverter.com</a>.
+    </p>
+
+    <p class="mt-5 text-muted">
+        Last updated: @DateTime.Now.ToString("MMMM dd, yyyy")
+    </p>
+</div>
