@@ -22,6 +22,7 @@ This is a web-based application built using **ASP.NET Core MVC** with a **C#** b
 - `/Controllers`: Contains all the C# logic for handling HTTP requests and returning views.
 - `/Views`: Stores the Razor views for rendering HTML with C# data.
 - `/wwwroot`: Contains static files such as images, CSS, and JavaScript.
+- `/Services`: Contains service layers for speech functionality and unit conversions.
   
 ## Installation
 
@@ -35,4 +36,4 @@ This is a web-based application built using **ASP.NET Core MVC** with a **C#** b
 To clone the repository, run the following command:
 
 ```bash
-git clone https://github.com/jonfrancis-student/RetroTwoConverter.git
+git clone https://github.com/jonfrancis-student/This2ThatConverter.Web.git
